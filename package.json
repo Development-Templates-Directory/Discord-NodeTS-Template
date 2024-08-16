@@ -9,9 +9,10 @@
     "node": ">=20.16.0"
   },
   "scripts": {
+    "prestart": "chmod +x ./.scripts/* && ./.scripts/env_sync.sh",
     "test": "npm run clear && jest --coverage",
     "test:watch": "npm run clear && jest --watch",
-    "start": ". ./.env && DISCORD_BOT_TOKEN=$DISCORD_BOT_TOKEN npm run build && node --experimental-specifier-resolution=node .",
+    "start": ". ./.env && npm run build && DISCORD_BOT_TOKEN=$DISCORD_BOT_TOKEN  node --experimental-specifier-resolution=node .",
     "start:watch": ". ./.env && DISCORD_BOT_TOKEN=$DISCORD_BOT_TOKEN nodemon src/index.ts",
     "dev": "mprocs",
     "lint": "eslint ./src/**/*.ts",
